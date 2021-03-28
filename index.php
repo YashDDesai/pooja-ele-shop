@@ -183,13 +183,13 @@ $img = array(
       $query = "SELECT * FROM product_description where p_id =" . $r["p_id"] . " LIMIT 3";
       $result2 = mysqli_query($conn, $query);
         if(mysqli_num_rows($result2) > 0){
-          $desc_str = "<span style='font-size:15px;'>";
+          $desc_str = "<span style='font-size:15px;color:rgba(0,0,0,.7)'>";
           while($r2 = mysqli_fetch_row($result2)){
             $desc_str .= "<span style='font-weight: 500;'>". $r2[2]. "</span> : " . $r2[3]. ", "; 
           }
         }
-        $desc_str .= "</span>";
         $desc_str = rtrim($desc_str, ", ");
+        $desc_str .= "</span>";
   ?>
       <div class="card-l col-xl-3 col-sm-11 col-md-6 col-xl-3 mt-3"  >
 
@@ -199,7 +199,7 @@ $img = array(
             <div class="card-body flex">
               <div class="row justify-content-between">
                 <div class="col-6">
-                  <h6 class="card-title"> <?= $r['p_name'] ?></h6>
+                  <h5 class="card-title"> <?= $r['p_name'] ?></h5>
                 </div>
                 <div class="col-6">
                   <h5 style="text-align: right;">₹ <?= $s_price ?></h5>
@@ -230,13 +230,10 @@ $img = array(
   <?php
   }
   ?>
-
-
-
 </div>
 <?php
-if ($count_of_data < $total_rows) {
 
+if ($count_of_data < $total_rows) {
 
 ?>
   <nav aria-label="Page navigation example mt-5">
@@ -278,7 +275,9 @@ if ($count_of_data < $total_rows) {
 
   ?>
 </datalist>
-
+<?php  
+  include './bottom.php';
+?>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js"></script>
 <script type="text/javascript">
